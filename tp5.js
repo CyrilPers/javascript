@@ -11,6 +11,10 @@ function bonjourUntel(untel) {
 bonjourUntel('John');
 
 function calcul(a, b) {
+    if (!a || !b)
+        throw ("Erreur : les deux paramètres doivent être définis");
+    if (typeof a !== 'number' || typeof b !== 'number')
+        throw ("Erreur : les deux paramètres doivent être des nombres");
     return a * b + a + b
 }
 
@@ -29,14 +33,20 @@ console.log(controlTableau(['a', 'b', 'c']));
 console.log(controlTableau([]));
 
 function moyenne(tableau) {
+    if (!Array.isArray(tableau))
+        throw ("Veuillez ajouter un tableau en paramètre");
     if (!tableau.every(element => typeof element === 'number')) {
-        // throw ("Le tableau contient un élement qui n'est pas un nombre");
+        throw ("Le tableau contient un élement qui n'est pas un nombre");
     }
     if (tableau.length === 0) {
         return 0;
     }
-    total = tableau.reduce((a, b) => a + b);
-    return total / tableau.length;
+    try {
+        total = tableau.reduce((a, b) => a + b);
+        return total / tableau.length;
+    } catch (error) {
+        throw ("Erreur lors du calcul de la moyenne");
+    }
 }
 
 console.log(moyenne([1, 2, 3]));
@@ -96,6 +106,10 @@ gestionnaire.ajouterTache('Savoir coder');
 gestionnaire.ajouterTache('Être expert');
 gestionnaire.terminerTache(0);
 gestionnaire.afficherTaches()
+
+console.log(moyenne([1, 2, 3, 4, 5]));
+console.log(moyenne([1, 2, 3, 4, "cds"]));
+console.log(moyenne(1));
 
 
 

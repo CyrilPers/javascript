@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkForm() {
+            const errors = [];
+            const prenom = document.getElementById("prenom").value;
+            const nom = document.getElementById("nom").value;
+            const dateNaissance = document.getElementById("dateNaissance").value;
+            if (prenom === "") {
+                errors.push("Veuillez entrer un prénom");
+            }
+            if (nom === "") {
+                errors.push("Veuillez entrer un nom");
+            }
+            if (dateNaissance === "") {
+                errors.push("Veuillez entrer une date de naissance");
+            }
+            console.log(errors);
+           if (errors.length > 0) {
+               const errorJoined = errors.join(". ");
+               alert(errorJoined);
+           }
+
+        }
+    </script>
+</head>
+<body>
+<form>
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" name="nom"/>
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" name="prenom"/>
+    <label for="dateNaissance">Date de naissance</label>
+    <input type="date" id="dateNaissance" name="dateNaissance" />
+    <input type="submit" value="soumettre" onclick="checkForm()"/>
+</form>
+</body>
+</html>

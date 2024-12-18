@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate() {
+            const nb1 = parseFloat(document.getElementById("nb1").value);
+            const nb2 = parseFloat(document.getElementById("nb12").value);
+            const operator = document.getElementById("operator").value;
+            console.log(operator);
+            if (isNaN(nb1) || isNaN(nb2)) {
+                alert("Veuillez entrer un nombre valide");
+            } else {
+                resultat = eval(nb1 + operator + nb2);
+                document.getElementById("resultat").innerHTML = resultat;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="number" id="nb1" value="nombre 1"/>
+<label for="operator">Choisir l'opérateur</label>
+<select id="operator" name="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select>
+<input type="number" id="nb12" value="nombre 2"/>
+<input type="button" value="calculer" onclick="calculate()"/>
+<div> Le résultat est : <span id="resultat"></span></div>
+</body>
+</html>
