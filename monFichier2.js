@@ -42,5 +42,5 @@ function initialiserDonnees() {
         <td>${pays.pourcentage}</td>
     </tr>`).join("");
 
-    tableTitle.insertAdjacentHTML("beforeend",pays);
+    tableTitle.innerHTML =pays;
 }
